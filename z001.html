@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <H1>SAPUI5 입문을 위한 자바스크립트 코딩 컨벤션</H1>
+  <ul></ul>
+  <script>
+
+    // 비교 연산을 사용시 항상 == 대신 === 을 사용
+    const a = 10;
+    console.log(a === 10);
+    console.log(a == 10);
+    console.log(2 == "2"); //true
+    console.log(2 === "2"); // false ★★
+
+    //연산자를 기술 할 때에는 공백 사이에 추가
+    var message1 = 'hello, ' + name + '!' // O
+    var message2 = 'hello, ' + name + '!' // X
+
+    console.log(message1);
+    console.log(message2);
+
+    // else 문은 중괄호와 같은 줄에
+    if (true) {
+      // ...
+    } else {
+      // ...
+    }
+
+    //변수나 함수이름 사용시 캐멀케이스(camelcase)를 적용
+    function my_function () { } // X
+    function myFunction () { } // O
+    var my_var = 'hello' // X
+    var myVar = 'hello' // O
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>XXXXXXXXXXXXXXXXXX</h1>
+  <textarea id="result" style="font-size: 18pt" 
+  rows="100" cols="60"></textarea>
+  <script>
+    const showVar = function (str) {
+      const resultBox = document.querySelector("#result");
+      if (resultBox.textContent !== "") {
+        resultBox.textContent = resultBox.textContent + "\n\n" + str;
+      } else {
+        resultBox.textContent = str;
+      }
+    }
+  </script>
+  <script>
+    
+  </script>
+</body>
+
+</html>
