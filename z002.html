@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 배열 메소드 기초</h1>
+  <textarea id="result" style="font-size: 18pt" 
+  rows="100" cols="60"></textarea>
+  <script>
+    const showVar = function (str) {
+      const resultBox = document.querySelector("#result");
+      if (resultBox.textContent !== "") {
+        resultBox.textContent = resultBox.textContent + "\n\n" + str;
+      } else {
+        resultBox.textContent = str;
+      }
+    }
+  </script>
+  <script>
+    const value = [54, 65, "안녕", false];
+    //배열.push(넣을 값)
+    value.push(50);
+    console.log("value : " + value);
+
+    showVar(value);
+
+    value.push(99, true)
+    showVar(value);
+
+    //배열 중간에 요소 추가하기 – splice
+    //변수.splice( 위치, 0, 추가할 값)
+    value.splice(1, 0, "요소추가")
+    showVar(value);
+
+    //인덱스로 배열의 요소 제거하기 – splice
+    const value2 = [54, 65, "안녕", false]
+    showVar(value2);
+
+    value2.splice(0, 1)
+    showVar(value2);
+
+    // 자바스크립트는 Zero 인덱스를 사용
+    const value3 = [54, 65, "안녕", false]
+    showVar(value3);
+    const iIndex = value3.indexOf('안녕');
+    showVar(iIndex);
+
+    //값으로 배열의 요소 제거하기 – / splice
+    const value4 = [54, 65, "안녕", "안녕"];
+    showVar(value4);
+    const index = value4.indexOf('안녕');
+
+    value4.splice(index, 2);
+    showVar(value4);
+
+    //배열에 해당 요소가 포함되어 있는지 확인 – includes
+    // true, false로 값
+    const value5 = [54, 65, "안녕", false];
+    showVar(value5);
+    const bFind5 = value5.includes("안녕");
+    showVar(bFind5);
+    const bFind6 = value.includes("하세요");
+    showVar(bFind6);
+
+    const ret = value5.pop();
+    showVar(value5);
+    showVar(ret);
+    const ret2 = value5.pop();
+    showVar(value5);
+    showVar(ret2);
+
+    //배열의 병합 - concat
+    const value6 = [54, 65, "안녕", false];
+    const value7 = [true, "하세요"];
+
+    const merge = value6.concat(value7);
+
+    showVar(merge);
+
+    const string = "안녕 하세요 반갑습니다.";
+    const array = string.split(" ");
+    showVar( array );
+    console.log( array)
+
+    const value8 = [54, 65, "안녕", false];
+    const value9 = value8.reverse();
+    showVar(value9);
+
+    
+
+  </script>
+</body>
+
+</html>

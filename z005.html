@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 콜백함수 for SAPUI5</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+
+    //공통 모듈
+    const dbProc = function (param_func) {
+      param_func();
+    }
+
+    //사용처의 Dependant 한 로직을 외부에서 작성이 가능
+    const callback_func = function () {
+      showVar("업데이트되었습니다.");
+    }
+
+    const callback_func2 = function () {
+      showVar("생성되었습니다.");
+    }
+
+    dbProc(callback_func);
+    dbProc(callback_func2);
+
+// 안에서 처리될 내역을 밖에서 작성할 수 있다.
+    const 콜백테스트 = function( 배열, 콜백함수 ){
+      for( const 개별값 of 배열){
+        콜백함수(개별값)
+      }
+    }
+
+    const 함수참조 = function( 개별값 ){
+      showVar(개별값)
+    }
+
+    콜백테스트([10,45,33,20], 함수참조);
+
+    const array = [45,35, 56, 34];
+
+    const forEachCallBack = function(value, index, array ){
+      showVar( value );
+      showVar( index );
+    }
+
+    array.forEach( forEachCallBack );
+
+    const filterCallBack = function( value, index, array ){
+      if (value % 2 === 0 ){ //짝수
+        return value;
+      } 
+    }
+
+    const filterArray = array.filter( filterCallBack );
+    showVar( filterArray );
+    console.log( filterArray );
+
+    const mapCallBack = function( value, index, array ){
+      return value + 1;
+    }
+
+    const mapArray = array.map( mapCallBack );
+    showVar( mapArray );
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 함수(function)의 이해 for SAPUI5 입문
+  </h1>
+  <textarea id="result" style="font-size: 18pt" 
+  rows="100" cols="60"></textarea>
+  <script>
+    const showVar = function (str) {
+      const resultBox = document.querySelector("#result");
+      if (resultBox.textContent !== "") {
+        resultBox.textContent = resultBox.textContent + "\n\n" + str;
+      } else {
+        resultBox.textContent = str;
+      }
+    }
+  </script>
+  <script>
+    function funcName( x, y ){
+      showVar( x+y );
+    }
+
+    funcName(1, 2);
+
+    const func = function(x, y){
+      showVar( x+y );
+    }
+
+    func(4, 5);
+
+    //externalVar는 실제 수행이 되는 시점보다 먼저 선언이 되어야 한다.
+    const func2 = function(x){
+      showVar(x+ externalVar)
+    };
+
+    const externalVar = 8;
+  
+    func2(5);
+
+    // 익명 함수는 반드시 변수에 할당해야 한다.
+    const func3 = function(){
+      return 1;
+    }
+
+    showVar(func3())
+
+    // const func4 = function myFunc4(){
+    //   return "함수"
+    // }
+
+    // showVar( func4())
+
+    const func4 =  myFunc4;
+
+    showVar( func4())
+
+    //명시적 함수는 호이스팅에 의해 미리 선언됨
+    //익명함수는 코드가 한줄한줄 실행되며 생성
+    function myFunc4(){
+      return "함수"
+    }
+
+    //파라메터 전개연산자
+    // const func5 = function(p1, p2, ...args){
+    //   const array = [];
+    //   array.push(p1);
+    //   array.push(p2);
+    //   array.push(args);
+    //   showVar(array);
+    // }
+
+    // func5( 1,2, 3, 4, 5);
+
+    const arr1 = [1,2,3];
+    const arr2 = [4,5];
+
+    // 배열의 [객체] 형태로 들어가게됨
+    arr1.push( arr2 );
+    console.log( arr1);
+
+    const arr3 = [1,2,3];
+    const arr4 = [4,5];
+    // 배열이 각 요소로 형태로 들어가게됨
+    arr3.push(...arr4);
+    console.log( arr3 );
+  
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>SAPUI5 자바스크립트 DOM 기초</h1>
+  <script src="./resultBox.js">
+  </script>
+
+  <div id="div1">
+    Div1
+  </div>
+
+  <div id="div2">
+    Div2
+  </div>
+
+  <script>
+    let h1 = document.createElement("h1");
+    h1.textContent = "new element";
+    h1.style.color = "red";
+
+    const div1 = document.querySelector("#div1");
+    console.log( div1 );
+    div1.appendChild( h1 );
+
+    const div2 = document.querySelector("#div2");
+
+    setTimeout( function(){
+      // h1.parentNode.removeChild( h1 );
+      div2.appendChild( h1 );
+    }, 5000);
+
+  </script>
+</body>
+
+</html>

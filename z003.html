@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>XXXXXXXXXXXXXXXXXX</h1>
+  <textarea id="result" style="font-size: 18pt" 
+  rows="100" cols="60"></textarea>
+  <script>
+    const showVar = function (str) {
+      const resultBox = document.querySelector("#result");
+      if (resultBox.textContent !== "") {
+        resultBox.textContent = resultBox.textContent + "\n\n" + str;
+      } else {
+        resultBox.textContent = str;
+      }
+    }
+  </script>
+  <script>
+
+    const arr = ['바나나', '사과', '귤'];
+    for ( const item of arr ){
+      showVar( item );
+    }
+
+    for ( const index in arr ){
+      showVar( index );
+      showVar( arr[index]);
+    }
+
+    const obj = {
+      a : "가",
+      b : "나",
+      c : "다"
+    };
+
+    for ( let item in obj ){
+      showVar( item );
+      showVar( obj[item] );
+    }
+
+    // 자바스크립트는 에러 발생시 아래 라인의 수행을 멈춤
+    // for( let item of obj ){
+    //   showVar( item )
+    // }
+    
+    for( let i = 0; i < 5; i++ ){
+      console.log( i )
+      showVar( i )
+    }
+
+    for( let i = 10; i > 5; i-- ){
+      console.log( i )
+      showVar( i )
+    }
+
+  </script>
+</body>
+
+</html>

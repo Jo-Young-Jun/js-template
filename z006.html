@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>SAPUI5 자바스크립트 DOM 기초</h1>
+  <h2 id="h2Id">SAPUI5 자바스크립트 DOM 기초</h1>
+  <h3 class="h3-class">SAPUI5 자바스크립트 DOM 기초</h3>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    document.addEventListener( "DOMContentLoaded", function(){
+      // 객체
+      const h1 = document.querySelector("h1");
+      h1.style.color = "red";
+      // ID
+      const h2 = document.querySelector("#h2Id");
+      h2.style.color = "blue";
+      h2.textContent = '자바스크립트';
+      // 클래스
+      const h3 = document.querySelector(".h3-class");
+      h3.style.color = "orange";
+      h3.innerHTML = '<del>자바스크립트1</del>';
+    })
+  </script>
+</body>
+
+</html>
