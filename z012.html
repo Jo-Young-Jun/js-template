@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 문자열 메소드 모음</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    const str = "문자열 선언";
+
+    showVar(str);
+
+    const strObj = new String("문자열 선언");
+
+    showVar(strObj);
+
+    // slice 선언 - String
+    const string1 = "apple, banana, grape";
+
+    showVar(string1.slice(0, 5));
+
+    // Slice - 배열
+    const arr = ["철수", "영희", "순이", "명자"];
+
+    showArray(arr.splice(0, 3));
+
+    // repeat 반복
+    showVar(string1.repeat(5));
+
+    // toLowerCase 메소드
+    const string2 = "HI, MY NAME IS";
+
+    showVar(string2.toLowerCase());
+
+    const string3 = "hi, my name is";
+
+    showVar(string3.toUpperCase());
+
+    //includes 포함 여부 - true, false
+
+    showVar(string3.includes("my"));
+    showVar(string3.includes("hi"))
+    showVar(string3.includes("mei"))
+    showVar(string3.includes("hi!"))
+
+    //대소문자 상관없이 포함여부 체크
+    showVar(string2.toLowerCase().includes("hi"));
+
+    //indexOf : 입력받은 문자열이 처음 나타나는 위치
+
+
+    const idxOfString = "Fighting bro, Cheer up bro";
+    // bro라는 단어가 처음 등장하는 인덱스인 9를 리턴
+    showVar("인덱스 위치 : " + idxOfString.indexOf("bro"));
+
+    const fromIndstr = "[SAPUI5] 자바스크립트";
+    //찾는 위치를 8부터 정했기 때문에 false가 리턴된다.
+
+    showVar(fromIndstr.includes("SAPUI5", 8));
+
+    //자바스크립트 문자열 indexOf와 includes의 비교
+    const incIndOf = "[SAPUI5] 자바스크립트";
+
+    if (incIndOf.indexOf("SAPUI5") > -1) {
+      showVar("indexOf 포함됨")
+    }
+
+    if (incIndOf.includes("SAPUI5")) {
+      showVar("includes 포함됨")
+    }
+
+    const startWith = "[SAPUI5] 자바스크립트";
+    // 첫번째 는 TRUE, 두번째는 FALSE를 리턴
+    console.log(startWith.startsWith("[SAPUI5]"));
+    console.log(startWith.startsWith("자바스크립트"));
+
+    const endWithStr = "[SAPUI5] 자바스크립트";
+
+    // 첫번째 는 false, 두번째는 true를 리턴
+    console.log(endWithStr.endsWith("[SAPUI5]"));
+    console.log(endWithStr.endsWith("자바스크립트"));
+  </script>
+</body>
+
+</html>

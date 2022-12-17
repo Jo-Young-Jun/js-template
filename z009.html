@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 foreach 코드 설명  </h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+
+    const arr = [100, 120, 109, 155, 12, -123];
+
+    arr.forEach( function(item){
+      showVar( item );
+    });
+
+    arr.forEach( item => {
+      showVar( item );
+    });
+
+    arr.forEach( (item, index) => {
+      showVar( item );
+    });
+
+  </script>
+</body>
+
+</html>

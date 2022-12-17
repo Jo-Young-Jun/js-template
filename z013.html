@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 템플릿 리터럴 사용 예제</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    // 백틱
+    let age = 30;
+    let text = `Hi, My age is ${age}`;
+
+    showVar(text);
+
+    //조건문
+
+    function checkAge(age) {
+      showVar(age > 20 ? "성인" : "미성년자");
+    }
+
+    checkAge(40);
+    checkAge(9);
+
+
+    //스트링 연결하기 - ES5 이전
+    let multiLine = "34, Dongsan-ro 16-gil ,\n" +
+      "Seocho-gu, \n" +
+      "Seoul, \n" +
+      "Republic of Korea";
+
+    showVar(multiLine);
+
+    let multiLine2 = `34, Dongsan-ro 16-gil ,
+    Seocho-gu, 
+    Seoul, 
+    Republic of Korea`;
+
+    showVar(multiLine2);
+
+    const student1 = {
+      name: "철수",
+      age: 20,
+      subject: "economy"
+    }
+
+    const student2 = {
+      name: "영희",
+      age: 21,
+      subject: "Computer"
+    }
+
+    const text1 = (student) => {
+      showVar(
+        `${ student.name}, ${ student.age} : ${ student.subject  == "economy" ?  "문과" : "이과" }`
+        );
+    }
+
+    text1(student1);
+    text1(student2);
+  </script>
+</body>
+
+</html>

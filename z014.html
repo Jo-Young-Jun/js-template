@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 디스트럭처링</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    // 변수 할당 방법
+    let elements = {
+      browser: "Chrome",
+      env: "Window10"
+    }
+
+    let browser = elements.browser;
+    let env = elements.env;
+
+    showVar(browser, env);
+
+    //변수 Destructuring
+    const elements2 = {
+      browser2: "Chrome",
+      env2: "Window10",
+    };
+
+    //단, 변수명과 동일해야 한다.
+    const {
+      browser2,
+      env2
+    } = elements2;
+
+    showVar(browser2, env2);
+
+
+    const elements3 = {
+      browser3: "Chrome",
+      env3: "Window10",
+      programming3: {
+        code: "visual studio code",
+        git: "github"
+      }
+    };
+
+    const {
+      browser3,
+      env3
+    } = elements3;
+    showVar(browser3);
+    showVar(env3);
+
+    const {
+      code,
+      git
+    } = elements3.programming3;
+    showVar(code);
+    showVar(git);
+
+    //원래 갖고 있던 속성 가져오기
+    const subjectString = "SAPUI5 자바스크립트";
+
+    // subjectString 래퍼 객체 요소 중 length 속성을 추출
+    const {
+      length
+    } = subjectString;
+
+    // subjectString의 길이 13
+    showVar(length);
+
+    // 함수 인자값을 destructuring 하여 받음
+    function loadSetting({
+      postion,
+      theme: {
+        color
+      }
+    }) {
+      showVar(postion.x_axis);
+      showVar(postion.y_axis);
+      showVar(color); //red
+    }
+
+    loadSetting({
+      postion: {
+        x_axis: 300,
+        y_axis: 400,
+      },
+      theme: {
+        color: "red",
+      },
+    });
+
+    //배열 디스트럭처링
+    const arrValues = [1, 2, 3, 4, 5, 6, 7];
+    //두 개의 변수만을 선언했으므로 2개의 요소만 가져온다.
+
+    const [first, second] = arrValues;
+    showVar(first);
+    showVar(second);
+
+    //날짜 포맷의 경우
+
+    const date = "2022-03-27";
+    const [year, month, day] = date.split("-");
+
+    showVar(year);
+    showVar(month);
+    showVar(day);
+
+    //Rest 파라메터 관련
+    const [numb1, numb2, ...others] = arrValues;
+    showVar(numb1);
+    showVar(numb2);
+    showArray(others);
+    
+  </script>
+</body>
+
+</html>

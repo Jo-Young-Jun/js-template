@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 bind 메소드 - this의 이해</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    const 영희 = {
+      name : "영희",
+      whoAmI : function(){
+        showVar( this.name );
+      }
+    };
+
+    영희.whoAmI();
+
+    const 철수 = {
+      name: "철수"
+    };
+
+    철수.whoAmI = 영희.whoAmI;
+
+    철수.whoAmI();
+
+
+    //this는 호출한 주체에 따라 달라진다.
+    age = 40;
+    const person = {
+      age : 30,
+      whoAmI: function(){
+        showVar(this.age);
+      }
+    }
+
+    person.whoAmI();
+
+    const myFunc = person.whoAmI;
+
+    myFunc();
+    
+    this.name = "철수";
+
+    const oObj = {
+      name : "영희",
+      whoAreYou : function(){
+        showVar(this.name);
+      }.bind(this)
+    }
+
+    oObj.whoAreYou();
+    
+  </script>
+</body>
+
+</html>

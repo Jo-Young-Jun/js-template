@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 filter 배열 함수 정리</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+  </script>
+
+  <script>
+    // filter : 조건에 맞는 값만 리턴할 때
+    const arr = [5, 7, 109, 10, 12, -123];
+
+    function filterFunc(item) {
+      return item >= 10
+    }
+
+    const retArr = arr.filter(filterFunc);
+
+    showVar(retArr);
+
+    // 특정 조건에 맞는 리스트만
+
+    const descList = [{
+        id: 1,
+        text: "첫번째 요소",
+        alreadyDone: true,
+      },
+      {
+        id: 2,
+        text: "두번째 요소",
+        alreadyDone: false,
+      },
+      {
+        id: 3,
+        text: "세번째 요소",
+        alreadyDone: true,
+      },
+    ];
+
+    const doneList = descList.filter( item =>{
+      return item.alreadyDone === false;
+    })
+
+    console.log(doneList);
+
+    // 짝수 번호만 모으기
+
+    const aNumbers = [0,1,2,3,4,5,6,7,8,9];
+
+    const evenList = aNumbers.filter( item =>{
+      return ( item % 2 === 0 );
+    })
+    
+    showArray(evenList);
+
+    //스트링 길이가 4이상인 것만
+    const arrList = ["tiger","lion", "dog", "cat"];
+
+    const fourList = arrList.filter( item => {
+      return (item.length >= 4 );
+    }) 
+
+    showArray( fourList);
+  </script>
+</body>
+
+</html>

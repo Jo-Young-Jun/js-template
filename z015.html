@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 json 객체 파싱 등 다루기</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    //자바스크립트 객체를 json 문자열로
+    const jsonObj = {
+      name: "철수",
+      age: 30,
+      job: "student",
+    };
+
+    showVar(typeof (jsonObj));
+    const refObj = JSON.stringify(jsonObj); //JSON 객체로 변경
+    showVar(refObj); // string 형태
+    showVar(typeof (refObj));
+
+    const book = {
+      title: "SAPUI5 자바스크립트",
+      author: "sap-learn-more",
+      toc: ["개요", "설명", "소스코드"],
+      release: "2022-03-29"
+    };
+    //자바스크립트 형태 
+    showVar(book.title);
+    showVar(book.author);
+    showVar(book.toc);
+
+    const jSonBook = JSON.stringify(book);
+    //json으로 변환된 상태의 스트링
+    showVar(jSonBook);
+
+    //일부 데이터만 가져오기 - 2번째인자
+    const sSelect = JSON.stringify(book, ["title", "toc"]);
+    showVar(sSelect);
+
+    //세번째 인자로 보기 좋게 가져오기
+    const sIndent = JSON.stringify(book, ["title", "toc"], 4);
+    showVar(sIndent);
+
+    const oJson = JSON.parse(sIndent);
+    showVar(oJson.title);
+    showVar(oJson.author);
+    showVar(oJson.toc);
+
+    // JSON 객체값 변경(날짜 포맷)
+    const jsonBook = JSON.stringify(book);
+    console.log(jsonBook);
+
+    const dateBook = JSON.parse(jsonBook, (key, value) => {
+      if (key === "release") {
+        return new Date(value);
+      } else {
+        return value;
+      }
+    });
+
+    showVar(dateBook.release);
+  </script>
+
+</body>
+
+</html>

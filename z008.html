@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>자바스크립트 람다 함수 사용법</h1>
+  <textarea id="result" style="font-size: 18pt" rows="100" cols="60"></textarea>
+  <script src="./resultBox.js">
+  </script>
+  <script>
+    const normalFunc = function (param) {
+      return '<h1>' + param + '</h1>';
+    }
+
+    const arrowFunc = (param) => {
+      return '<h2>' + param + '</h2>';
+    }
+
+    showVar(normalFunc("HI"));
+    showVar(arrowFunc("HI"));
+
+
+    //파라메터가 1개이면 () 생략가능
+    let func5 = param => {
+      return '<h3>' + param + '</h3>';
+    }
+
+    showVar(func5("test"));
+
+    // 매개변수가 없는 경우에는 () 사용
+
+    let func6 = () => {
+      return '<h4>' + "h4" + '</h4>';
+    }
+
+    showVar(func6());
+
+    // 일반 함수와 람다함수의 차이 this
+    param = 'global param';
+
+    // 호출하는 곳의 this를 이미 확보
+    let printParam = () => {
+      showVar(this.param);
+    }
+
+    let printParam2 = function(){
+      showVar(this.param);
+    }
+
+    let object = {
+      param: 'object param',
+      func: printParam
+    }
+
+    let object2 = {
+      param: 'object2 param',
+      func: printParam2
+    }
+
+    object.func();
+    object2.func();
+  </script>
+</body>
+
+</html>
